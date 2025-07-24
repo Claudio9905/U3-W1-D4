@@ -7,7 +7,7 @@ class CommentArea extends Component {
     arrayCommentsBook: [],
   };
 
-  componentDidMount() {
+  getReviews = () => {
     fetch(
       `https://striveschool-api.herokuapp.com/api/comments/` +
         this.props.idBook,
@@ -32,13 +32,17 @@ class CommentArea extends Component {
       .catch((err) => {
         console.log("ERRORE: ", err);
       });
+  };
+
+  componentDidMount() {
+    this.getReviews();
   }
 
   render() {
     return (
       <>
         <CommentList recensioni={this.state.arrayCommentsBook} />
-        <AddComment />
+        <AddComment id={this.props.id} />
       </>
     );
   }

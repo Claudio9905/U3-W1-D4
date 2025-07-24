@@ -6,10 +6,13 @@ class CommentList extends Component {
     return (
       <>
         {this.props.recensioni.map((recens) => {
-          <ListGroup key={recens.elementId}>
-            <ListGroup.Item>{recens.rate}</ListGroup.Item>
-            <ListGroup.Item>{recens.comment}</ListGroup.Item>
-          </ListGroup>;
+          return (
+            <ListGroup key={recens._id}>
+              <ListGroup.Item>
+                {recens.rate}-{recens.comment}
+              </ListGroup.Item>
+            </ListGroup>
+          );
         })}
       </>
     );
