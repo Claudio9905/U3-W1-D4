@@ -4,7 +4,7 @@ import AddComment from "./AddComment";
 
 class CommentArea extends Component {
   state = {
-    arrayCommentsBook: ``,
+    arrayCommentsBook: [],
   };
 
   componentDidMount() {
@@ -20,12 +20,13 @@ class CommentArea extends Component {
     )
       .then((response) => {
         if (response.ok) {
-          response.json();
+          return response.json();
         } else {
           throw new Error("ERRORE nella response");
         }
       })
       .then((resData) => {
+        console.log(resData);
         this.setState({ arrayCommentsBook: resData });
       })
       .catch((err) => {
