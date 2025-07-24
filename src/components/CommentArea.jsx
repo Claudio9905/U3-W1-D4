@@ -42,7 +42,7 @@ class CommentArea extends Component {
     return (
       <>
         <CommentList recensioni={this.state.arrayCommentsBook} />
-        <AddComment id={this.props.id} />
+        <AddComment id={this.props.idBook} />
       </>
     );
   }
